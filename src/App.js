@@ -17,10 +17,13 @@ function App() {
       reminder: false,
     },
   ]);
+  const deleteTask = (id) => {
+    console.log("delete task", id);
+  };
   return (
-    <div className="App container pt-4">
+    <div className="container mx-auto pt-4">
       <Header title="Task Tracker" color="bg-gray-800" />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }

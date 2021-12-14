@@ -1,10 +1,12 @@
-const Tasks = ({ tasks }) => {
+import Task from "./Task";
+
+const Tasks = ({ tasks, onDelete }) => {
   return (
-    <>
+    <div className="flex flex-col gap-2 mt-4 mx-8">
       {tasks.map((task) => (
-        <h3 key={task.id}>{task.text}</h3>
+        <Task key={task.id} task={task} onDelete={onDelete} />
       ))}
-    </>
+    </div>
   );
 };
 
