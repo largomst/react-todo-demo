@@ -6,7 +6,7 @@ const Header = ({ title }) => {
     console.log("Click");
   };
   return (
-    <header className={"flex px-8"}>
+    <header className="flex">
       <h1 className="text-4xl tracking-wider flex-grow font-semibold">
         {title}
       </h1>
