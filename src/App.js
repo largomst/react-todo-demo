@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="container mx-auto">
       <div className="m-4 p-4 border border-green-500 rounded-md">
-        <Header title="Task Tracker" onAdd={() => setShowAddTask(!showAddTask)} color="bg-gray-800" />
+        <Header title="Task Tracker" onAdd={() => setShowAddTask(!showAddTask)} showAdd={!showAddTask} />
         {showAddTask && ( <AddTask onAdd={addTask} />) }
         {tasks.length > 0 ? (
           <Tasks
