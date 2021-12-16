@@ -5,6 +5,7 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -19,7 +20,6 @@ function App() {
       reminder: false,
     },
   ]);
-
   // add task
   const addTask = (task) => {
     console.log(task);
@@ -27,7 +27,6 @@ function App() {
     const newTask = { id, ...task };
     setTasks([...tasks, newTask]);
   };
-
   // delete task
   const deleteTask = (id) => {
     console.log("delete task", id);
@@ -46,8 +45,8 @@ function App() {
   return (
     <div className="container mx-auto">
       <div className="m-4 p-4 border border-green-500 rounded-md">
-        <Header title="Task Tracker" color="bg-gray-800" />
-        <AddTask onAdd={addTask} />
+        <Header title="Task Tracker" onAdd={() => setShowAddTask(!showAddTask)} color="bg-gray-800" />
+        {showAddTask && ( <AddTask onAdd={addTask} />) }
         {tasks.length > 0 ? (
           <Tasks
             tasks={tasks}
